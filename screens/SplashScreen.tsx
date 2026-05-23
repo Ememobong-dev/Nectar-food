@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet, StatusBar, Image } from "react-native";
 import { COLORS } from "../constants/colors";
 
 type SplashScreenProps = {
@@ -17,7 +17,11 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
 
       <View style={styles.logoWrapper}>
-        <Text style={styles.carrot}>🥕</Text>
+        <Image
+          source={require("../assets/images/white-carrot.png")}
+          style={styles.image}
+          resizeMode="contain"
+        />
 
         <View>
           <Text style={styles.logoText}>nectar</Text>
@@ -40,8 +44,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
   },
-  carrot: {
-    fontSize: 34,
+  image: {
+    width: 48,
+    height: 48,
   },
   logoText: {
     color: COLORS.white,
