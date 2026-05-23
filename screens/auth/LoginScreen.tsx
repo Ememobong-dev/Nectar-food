@@ -29,11 +29,11 @@ export default function LoginScreen() {
         <Text style={styles.forgotText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <AppButton title="Log In" onPress={() => router.push("/(auth)/location")} />
+      <AppButton title="Log In" onPress={() => router.push("/(tabs)")} />
 
       <TouchableOpacity onPress={() => router.push("/(auth)/signup")}>
         <Text style={styles.bottomText}>
-          Don’t have an account? <Text style={styles.greenText}>Signup</Text>
+          Don&apos;t have an account? <Text style={styles.greenText}>Signup</Text>
         </Text>
       </TouchableOpacity>
     </View>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 24,
-    paddingTop: 70,
+    paddingTop: 90,
     backgroundColor: COLORS.white,
   },
   logo: {
