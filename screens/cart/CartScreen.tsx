@@ -11,10 +11,12 @@ import { Ionicons } from "@expo/vector-icons";
 import AppButton from "../../components/AppButton";
 import { COLORS } from "../../constants/colors";
 import { products } from "../../data/products";
+import CheckoutModal from "../checkout/CheckoutModal";
 
 const cartItems = products.slice(2, 6);
 
 export default function CartScreen() {
+  const [checkoutVisible, setCheckoutVisible] = useState(false);
   const [quantities, setQuantities] = useState<Record<string, number>>({
     "3": 1,
     "4": 1,
@@ -75,11 +77,17 @@ export default function CartScreen() {
       />
 
       <View style={styles.buttonWrapper}>
-        <AppButton title="Go To Checkout" />
+        {/* <AppButton title="Go To Checkout" /> */}
+        <AppButton title="Go To Checkout" onPress={() => setCheckoutVisible(true)} />
+
         <View style={styles.totalBadge}>
           <Text style={styles.totalText}>$12.96</Text>
         </View>
       </View>
+      <CheckoutModal
+        visible={checkoutVisible}
+        onClose={() => setCheckoutVisible(false)}
+      />
     </View>
   );
 }
